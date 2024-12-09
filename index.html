@@ -1,90 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Your Name" />
-    <meta name="description" content="Your personal academic homepage." />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Your personal academic homepage with animations.">
     <title>Your Name - Academic Homepage</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
     <header>
-      <div class="container">
-        <img
-          src="assets/profile.jpg"
-          alt="Your Profile Picture"
-          class="profile-img"
-        />
-        <h1>Your Name</h1>
-        <p class="title">Your Academic Title</p>
-        <nav>
-          <ul>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#research">研究方向</a></li>
-            <li><a href="#projects">项目与论文</a></li>
-            <li><a href="#contact">联系方式</a></li>
-          </ul>
-        </nav>
-      </div>
+        <div class="container">
+            <h1 class="animated-title" data-aos="fade-down">Your Name</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Your Academic Title</p>
+            <nav>
+                <ul>
+                    <li><a href="#about" data-aos="fade-right">关于我</a></li>
+                    <li><a href="#research" data-aos="fade-left">研究方向</a></li>
+                    <li><a href="#projects" data-aos="fade-right">项目与论文</a></li>
+                    <li><a href="#contact" data-aos="fade-left">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2>关于我</h2>
-        <p>
-          你好！我是一名在[你的领域]领域的学者。目前我在[你的学校]从事[你的研究领域]的研究工作。我拥有[你的学位]学位，曾在[你曾工作过的机构或项目]工作。
-        </p>
-      </div>
+    <section id="about" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2>关于我</h2>
+            <p>你好！我是一名在[你的领域]领域的学者。目前我在[你的学校]从事[你的研究领域]的研究工作。我拥有[你的学位]学位，曾在[你曾工作过的机构或项目]工作。</p>
+        </div>
     </section>
 
-    <section id="research" class="section">
-      <div class="container">
-        <h2>研究方向</h2>
-        <ul>
-          <li>研究方向 1</li>
-          <li>研究方向 2</li>
-          <li>研究方向 3</li>
-        </ul>
-      </div>
+    <section id="research" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2>研究方向</h2>
+            <ul>
+                <li>研究方向 1</li>
+                <li>研究方向 2</li>
+                <li>研究方向 3</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>项目与论文</h2>
-        <h3>论文</h3>
-        <ul>
-          <li><a href="link_to_paper_1">论文标题 1</a></li>
-          <li><a href="link_to_paper_2">论文标题 2</a></li>
-          <li><a href="link_to_paper_3">论文标题 3</a></li>
-        </ul>
-        <h3>项目</h3>
-        <ul>
-          <li><a href="link_to_project_1">项目名称 1</a></li>
-          <li><a href="link_to_project_2">项目名称 2</a></li>
-          <li><a href="link_to_project_3">项目名称 3</a></li>
-        </ul>
-      </div>
+    <section id="projects" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2>项目与论文</h2>
+            <h3>论文</h3>
+            <ul>
+                <li><a href="https://scholar.google.com.hk/citations?user=cPVwwr4AAAAJ&hl=en" target="_blank">我的 Google Scholar 主页</a></li>
+                <li><a href="https://scholar.google.com.hk/citations?view_op=view_citation&citation_for_view=cPVwwr4AAAAJ:Ue3RM-8P4_kC" target="_blank">论文标题 1</a></li>
+                <li><a href="https://scholar.google.com.hk/citations?view_op=view_citation&citation_for_view=cPVwwr4AAAAJ:us3I6ZB5Qz4C" target="_blank">论文标题 2</a></li>
+                <li><a href="https://scholar.google.com.hk/citations?view_op=view_citation&citation_for_view=cPVwwr4AAAAJ:K9JtOt1l2FYC" target="_blank">论文标题 3</a></li>
+            </ul>
+        </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>联系方式</h2>
-        <p>
-          电子邮件:
-          <a href="mailto:your-email@example.com">your-email@example.com</a>
-        </p>
-        <p>
-          GitHub:
-          <a href="https://github.com/your-github-username" target="_blank"
-            >github.com/your-github-username</a
-          >
-        </p>
-      </div>
+    <section id="contact" class="section" data-aos="fade-up">
+        <div class="container">
+            <h2>联系方式</h2>
+            <p>电子邮件: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+            <p>GitHub: <a href="https://github.com/your-github-username" target="_blank">github.com/your-github-username</a></p>
+        </div>
     </section>
 
     <footer>
-      <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
-  </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // 动画持续时间
+            offset: 200, // 滚动触发位置
+            easing: 'ease-in-out', // 动画效果
+            once: true // 每个元素只触发一次动画
+        });
+    </script>
+</body>
 </html>
