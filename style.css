@@ -1,96 +1,112 @@
+/* 通用样式 */
 body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-    overflow: hidden;
-    cursor: none;
+    padding: 0;
+    color: #333;
+    background: #f5f5f5;
 }
 
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #0f2027;
+header {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+header #subtitle {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+header button {
+    background: #fff;
+    color: #2575fc;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+main {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+footer {
+    background: #f1f1f1;
+    color: #333;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* 漂浮框效果 */
+.floating-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.floating-box {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 1s ease;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.loading-text {
-    font-size: 32px;
-    color: #fff;
-    animation: pulse 2s infinite;
+.floating-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 0.8;
+/* 漂浮动画 */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
     }
     50% {
-        opacity: 1;
-    }
-}
-
-.flowing-text {
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
-    background-size: 200% auto;
-    color: white;
-    background-clip: text;
-    text-fill-color: transparent;
-    animation: shine 4s linear infinite;
-}
-
-@keyframes shine {
-    0% {
-        background-position: 0% 50%;
+        transform: translateY(-15px);
     }
     100% {
-        background-position: 200% 50%;
+        transform: translateY(0px);
     }
 }
 
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.cursor-trail {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background: radial-gradient(circle, white, transparent);
-    border-radius: 50%;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    animation: trail-glow 1s infinite;
-}
-
-@keyframes trail-glow {
-    0% {
-        transform: scale(0.8);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
-
-.content h1, .content ul li {
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.content h1:hover, .content ul li:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+/* 淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
