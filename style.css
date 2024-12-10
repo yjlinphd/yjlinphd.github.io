@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     color: #fff;
     background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-    overflow-x: hidden;
+    overflow: hidden;
     cursor: none;
 }
 
@@ -36,63 +36,61 @@ body {
     }
 }
 
+.flowing-text {
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
+    background-size: 200% auto;
+    color: white;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
 .background-animation {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #2c5364, transparent);
     pointer-events: none;
-    animation: move-bg 10s linear infinite;
+    z-index: -1;
 }
 
-@keyframes move-bg {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100px 200px;
-    }
-}
-
-.cursor {
+.cursor-trail {
     position: fixed;
     width: 15px;
     height: 15px;
-    background: white;
+    background: radial-gradient(circle, white, transparent);
     border-radius: 50%;
     pointer-events: none;
-    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    animation: trail-glow 1s infinite;
 }
 
-.container {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+@keyframes trail-glow {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+.content h1, .content ul li {
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.navbar button {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.3s;
-}
-
-.navbar button:hover {
-    background: #fff;
-    color: #000;
+.content h1:hover, .content ul li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
