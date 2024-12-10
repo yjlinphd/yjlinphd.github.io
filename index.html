@@ -3,102 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Your Name">
-    <meta name="description" content="Your personal academic homepage with animations.">
-    <title>Your Name - Academic Homepage</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>著作目錄</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .language-selector {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar button {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar button:hover {
+            background-color: #fff;
+            color: #2c3e50;
+        }
+
+        /* 内容容器 */
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .language-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1 class="animated-title" data-aos="fade-down">Your Name</h1>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Your Academic Title</p>
-            <nav>
-                <ul>
-                    <li><a href="#resume" data-aos="fade-right">简历</a></li>
-                    <li><a href="#research" data-aos="fade-left">研究方向</a></li>
-                    <li><a href="#papers" data-aos="fade-right">论文</a></li>
-                    <li><a href="#patents" data-aos="fade-left">专利</a></li>
-                </ul>
-            </nav>
+    <!-- 顶部导航栏 -->
+    <div class="navbar">
+        <div class="brand">我的学术主页</div>
+        <div class="language-selector">
+            <button onclick="changeLanguage('zh-CN')">简体中文</button>
+            <button onclick="changeLanguage('zh-TW')">繁體中文</button>
+            <button onclick="changeLanguage('en')">English</button>
         </div>
-    </header>
+    </div>
 
-    <!-- 简历 Section -->
-    <section id="resume" class="section" data-aos="fade-up">
-        <div class="container">
-            <h2>简历</h2>
-            <p>你好！我是一名在[你的领域]领域的学者。目前我在[你的学校]从事[你的研究领域]的研究工作。</p>
-            <p>你可以在下面查看我的详细简历：[简历下载链接]</p>
-        </div>
-    </section>
+    <!-- 内容容器 -->
+    <div class="container">
+        <h1>著作目錄</h1>
 
-    <!-- 研究方向 Section -->
-    <section id="research" class="section" data-aos="fade-up">
-        <div class="container">
-            <h2>研究方向</h2>
-            <div class="research-bubbles">
-                <div class="bubble" data-aos="zoom-in" data-aos-delay="100">研究方向 1</div>
-                <div class="bubble" data-aos="zoom-in" data-aos-delay="200">研究方向 2</div>
-                <div class="bubble" data-aos="zoom-in" data-aos-delay="300">研究方向 3</div>
-                <div class="bubble" data-aos="zoom-in" data-aos-delay="400">研究方向 4</div>
-                <div class="bubble" data-aos="zoom-in" data-aos-delay="500">研究方向 5</div>
-            </div>
-        </div>
-    </section>
+        <h2>国际期刊论文</h2>
+        <ul>
+            <li>Yijie Lin, Chia-Chen Lin, Jui‐Chuan Liu and Chin-Chen Chang*, (2023): "Verifiable (t,n) Secret Image Sharing Scheme Based on Slim Turtle Shell Matrix", <em>Journal of Information Security and Applications</em>. (Accepted 2023/12/13)</li>
+            <li>Jui‐Chuan Liu, Ching-Chun Chang, Yijie Lin*, Chin-Chen Chang* and Ji-Hwei Horng, (2023): "A Matrix Coding Oriented Reversible Data Hiding Scheme Using Dual Digital Images", <em>Mathematics</em>. (Accepted 2023/12/24)</li>
+            <li>Yijie Lin, Jui‐Chuan Liu, Ching-Chun Chang and Chin-Chen Chang*, (2024): "Embedding Secret Data in a Vector Quantization Codebook Using a Novel Thresholding Scheme", <em>Mathematics</em>. (Accepted 2024/04/18)</li>
+            <li>Jui‐Chuan Liu, Yijie Lin, Ching-Chun Chang and Chin-Chen Chang*, (2024): "A Side Match Oriented Data Hiding Based on Absolute Moment Block Truncation Encoding Mechanism with Reversibility", <em>Multimedia Tools and Applications</em>. (Accepted 2024/06/21)</li>
+            <li>Yijie Lin, Jui‐Chuan Liu, Ching-Chun Chang and Chin-Chen Chang*, (2024): "An Innovative Recompression Scheme for VQ Index Tables", <em>Future Internet</em>. (Accepted 2024/08/16)</li>
+        </ul>
 
-    <!-- 论文 Section -->
-    <section id="papers" class="section" data-aos="fade-up">
-        <div class="container">
-            <h2>论文</h2>
-            <ul>
-                <li>
-                    <a href="https://www.mdpi.com/2227-7390/12/1/86" target="_blank">
-                        Liu, J.C., Chang, C.C., Lin, Y., Chang, C.C. and Horng, J.H., 2023. A Matrix Coding-Oriented Reversible Data Hiding Scheme Using Dual Digital Images. <i>Mathematics</i>, 12(1), p.86.
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13169/1/Hiding-information-in-a-reordered-codebook-using-pairwise-adjustments-in/10.1117/12.2630714.full?SSO=1" target="_blank">
-                        Chang, C.C., Liu, J.C., Chang, C.C. and Lin, Y., 2024, May. Hiding information in a reordered codebook using pairwise adjustments in codewords. In <i>Fifth International Conference on Computer Vision and Computational Intelligence (CVCI 2024)</i> (Vol. 13169, pp. 99-113). SPIE.
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.mdpi.com/2076-0760/12/9/1332" target="_blank">
-                        Lin, Y., Liu, J.C., Chang, C.C. and Chang, C.C., 2024. Embedding Secret Data in a Vector Quantization Codebook Using a Novel Thresholding Scheme. <i>Mathematics</i>, 12(9), p.1332.
-                    </a>
-                </li>
+        <h2>国际会议论文</h2>
+        <ul>
+            <li>Chin-Chen Chang*, Jui-Chuan Liu, Ching-Chun Chang and Yijie Lin, (2023): "Hiding Information in a Reordered Codebook Using Pairwise Adjustments in Codewords", 2024 5th International Conference on Computer Vision and Computational Intelligence (CVCI 2024), 2024-01, Bangkok, Thailand. (Accepted 2023/10/18)</li>
+        </ul>
 
-            </ul>
-        </div>
-    </section>
+        <h2>提交论文</h2>
+        <ul>
+            <li>Yijie Lin, Jui‐Chuan Liu*, Ching-Chun Chang and Chin-Chen Chang*, (2024): "Customized Contour and Color Morphing in Thumbnail-Preserving Encryption and Data Hiding", submitted to <em>IEEE Internet of Things Journal</em>. (2024/08/20)</li>
+        </ul>
 
-    <!-- 专利 Section -->
-    <section id="patents" class="section" data-aos="fade-up">
-        <div class="container">
-            <h2>专利</h2>
-            <ul>
-                <li>专利名称 1 - <a href="专利链接" target="_blank">查看专利</a></li>
-                <li>专利名称 2 - <a href="专利链接" target="_blank">查看专利</a></li>
-                <li>专利名称 3 - <a href="专利链接" target="_blank">查看专利</a></li>
-                <!-- Add more patents here -->
-            </ul>
-        </div>
-    </section>
+        <h2>专利</h2>
+        <ul>
+            <li>Yijie Lin, Jui‐Chuan Liu, Ching-Chun Chang and Chin-Chen Chang*, (2024): "A Dual Image Secret Sharing Steganography Method Based on the Puzzle Reference Matrix".</li>
+        </ul>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-    </footer>
+    <!-- 页脚 -->
+    <div class="footer">
+        版权所有 © 2024 我的学术主页. 保留所有权利。
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000, // 动画持续时间
-            offset: 200, // 滚动触发位置
-            easing: 'ease-in-out', // 动画效果
-            once: true // 每个元素只触发一次动画
-        });
+        // 简单的语言切换功能（占位）
+        function changeLanguage(lang) {
+            alert("切换语言至: " + lang + "（功能开发中）");
+        }
     </script>
 </body>
 </html>
