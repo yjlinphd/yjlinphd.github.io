@@ -1,0 +1,21 @@
+{
+    "papers": [
+      {
+        "type": "International Journal Papers",
+        "title": "Verifiable (t,n) Secret Image Sharing Scheme Based on Slim Turtle Shell Matrix",
+        "authors": "Yijie Lin, Chia-Chen Lin, Jui‐Chuan Liu and Chin-Chen Chang*",
+        "journal": "Journal of Information Security and Applications",
+        "date": "Accepted 2023/12/13",
+        "description": "This paper presents a verifiable (t,n) secret image sharing scheme based on the Slim Turtle Shell Matrix."
+      },
+      {
+        "type": "International Journal Papers",
+        "title": "A Matrix Coding Oriented Reversible Data Hiding Scheme Using Dual Digital Images",
+        "authors": "Jui‐Chuan Liu, Ching-Chun Chang, Yijie Lin*, Chin-Chen Chang* and Ji-Hwei Horng",
+        "journal": "Mathematics",
+        "date": "Accepted 2023/12/24",
+        "description": "A novel matrix coding approach to reversible data hiding in dual images."
+      }
+    ]
+  }
+  
