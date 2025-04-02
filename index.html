@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yijie Lin</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #111;
+        --text: #eee;
+        --table-bg: #222;
+        --table-border: #444;
+        --table-th-bg: #333;
+        --header-bg: #333;
+        --header-text: #fff;
+      }
+      .light-mode {
+        --bg: #fff;
+        --text: #333;
+        --table-bg: #f9f9f9;
+        --table-border: #ccc;
+        --table-th-bg: #e0e0e0;
+        --header-bg: #ddd;
+        --header-text: #333;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 20px;
+        position: relative;
+        overflow-x: hidden;
+        transition: background 0.5s, color 0.5s;
+      }
+      #combinedTable {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        background: var(--table-bg);
+        border-collapse: collapse;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        animation: fadeIn 1.5s ease-out;
+        transition: background 0.5s;
+      }
+      #combinedTable th,
+      #combinedTable td {
+        border: 1px solid var(--table-border);
+        padding: 10px 15px;
+        text-align: left;
+        transition: all 0.5s ease;
+      }
+      #combinedTable th {
+        background-color: var(--table-th-bg);
+        width: 40%;
+      }
+      #combinedTable td {
+        background-color: var(--table-bg);
+      }
+      h1.ct.tt {
+        font-size: 2em;
+        text-align: center;
+        margin-top: 40px;
+        text-transform: uppercase;
+        border-bottom: 3px solid #aaa;
+        display: inline-block;
+        animation: fadeInDown 2s ease-out;
+      }
+      hr {
+        margin: 20px 0;
+      }
+      h2 {
+        font-size: 1.5em;
+        margin: 30px 0 10px;
+        padding: 10px;
+        background: var(--header-bg);
+        color: var(--header-text);
+        cursor: pointer;
+        transition: background 0.3s, box-shadow 0.3s;
+        animation: fadeInLeft 1.8s forwards;
+        border-radius: 5px;
+      }
+      h2:hover {
+        background: #444;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      ol.pp {
+        margin-left: 40px;
+        margin-bottom: 20px;
+        max-height: 1000px;
+        opacity: 1;
+        transform: scaleY(1);
+        transition: max-height 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+        overflow: hidden;
+      }
+      ol.pp.hidden {
+        max-height: 0;
+        opacity: 0;
+        transform: scaleY(0.95);
+      }
+      .circle-btn {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #d2f0f4;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5em;
+        box-shadow: 0 0 8px #a1afc9;
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+      }
+      .circle-btn:hover {
+        background: #424c50;
+        transform: scale(1.1);
+        box-shadow: 0 0 12px #a1afc9;
+      }
+      #scrollToTopBtn {
+        bottom: 20px;
+        right: 20px;
+      }
+      #toggleAllBtn {
+        bottom: 90px;
+        right: 20px;
+      }
+      #themeToggleBtn {
+        top: 20px;
+        right: 20px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .highlight {
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+        background-color: rgba(255, 215, 0, 0.15);
+        transition: text-shadow 0.3s;
+      }
+      .bubble {
+        position: fixed;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 0, 0, 0.3),
+          rgba(255, 127, 0, 0.3),
+          rgba(255, 255, 0, 0.3),
+          rgba(0, 255, 0, 0.3),
+          rgba(0, 0, 255, 0.3),
+          rgba(75, 0, 130, 0.3),
+          rgba(148, 0, 211, 0.3)
+        );
+        color: #808080;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-weight: bold;
+        z-index: 1000;
+        pointer-events: auto;
+        user-select: none;
+        animation: float 4s ease-in-out infinite;
+        transition: box-shadow 0.3s;
+      }
+      .bubble:hover {
+        box-shadow: 0 0 15px #000000;
+      }
+      @keyframes float {
+        0% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(30px, -30px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+      lg {
+        color: #90ee90;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="combinedTable">
+      <tr>
+        <th>姓名</th>
+        <td>林翼潔</td>
+      </tr>
+      <tr>
+        <th>學位</th>
+        <td>博士班</td>
+      </tr>
+      <tr>
+        <th>年級</th>
+        <td>二年級</td>
+      </tr>
+    </table>
+
+    <h2>International Journal Papers</h2>
+    <ol class="pp">
+      <li>
+        <b>Yijie Lin</b>, Chia-Chen Lin, Jui‐Chuan Liu and
+        <u>Chin-Chen Chang*</u>, (2023): "Verifiable (t,n) Secret Image Sharing
+        Scheme Based on Slim Turtle Shell Matrix",
+        <i>Journal of Information Security and Applications</i>.
+        <lg>(Accepted 2023/12/13)</lg>
+      </li>
+      <li>
+        Jui‐Chuan Liu, Ching-Chun Chang, <b>Yijie Lin*</b>,
+        <u>Chin-Chen Chang*</u> and Ji-Hwei Horng, (2023): "A Matrix Coding
+        Oriented Reversible Data Hiding Scheme Using Dual Digital Images",
+        <i>Mathematics</i>. <lg>(Accepted 2023/12/24)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2024): "Embedding Secret Data in a Vector
+        Quantization Codebook Using a Novel Thresholding Scheme",
+        <i>Mathematics</i>. <lg>(Accepted 2024/04/18)</lg>
+      </li>
+      <li>
+        Jui‐Chuan Liu, <b>Yijie Lin</b>, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2024): "A Side Match Oriented Data Hiding
+        Based on Absolute Moment Block Truncation Encoding Mechanism with
+        Reversibility", <i>Multimedia Tools and Applications</i>.
+        <lg>(Accepted 2024/06/21)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2024): "An Innovative Recompression Scheme for
+        VQ Index Tables", <i>Future Internet</i>. <lg>(Accepted 2024/08/16)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Chia-Chen Lin*, Ching-Chun Chang and
+        <u>Chin-Chen Chang</u>, (2024): "An IoT-Based Electronic Health
+        Protection Mechanism with AMBTC Compressed Images",
+        <i>IEEE Internet of Things Journal</i>. <lg>(Accepted 2024/09/16)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu*, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2024): "Lossless Recompression of Vector
+        Quantization Index Table for Texture Images Based on Adaptive Huffman
+        Coding through Multi-Type Processing", <i>Symmetry</i>.
+        <lg>(Accepted 2024/10/22)</lg>
+      </li>
+      <li>
+        Ching-Chun Chang, <b>Yijie Lin*</b>, Jui‐Chuan Liu* and
+        <u>Chin-Chen Chang*</u>, (2024): "Reversible Data Hiding in Absolute
+        Moment Block Truncation Codes via Arithmetical and Logical Differential
+        Coding", <i>Cryptography</i>. <lg>(Accepted 2024/12/28)</lg>
+      </li>
+    </ol>
+
+    <h2>International Conference Papers</h2>
+    <ol class="pp">
+      <li>
+        <u>Chin-Chen Chang*</u>, Jui-Chuan Liu, Ching-Chun Chang and
+        <b>Yijie Lin</b>, (2023): "Hiding Information in a Reordered Codebook
+        Using Pairwise Adjustments in Codewords",
+        <i
+          >2024 5th International Conference on Computer Vision and
+          Computational Intelligence (CVCI 2024)</i
+        >, 2024-01, Bangkok, Thailand. <lg>(Accepted 2023/10/18)</lg>
+      </li>
+    </ol>
+
+    <h2>Revised Papers</h2>
+    <ol class="pp">
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "A Puzzle Matrix Oriented Secret
+        Sharing Scheme for Dual Images with Reversibility", submitted to
+        <i>Signal Processing</i>. <lg>(2025/02/06)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Chia-Chen Lin*, Ching-Chun Chang and
+        <u>Chin-Chen Chang</u>, (2025): "Hiding Information in Encrypted Images
+        with (t,n) Secret Sharing for IoT and Cloud Services", submitted to
+        <i>Journal of Information Security and Applications</i>.
+        <lg>(2025/03/08)</lg>
+      </li>
+      <li>
+        Zhe-Min Yeh, Chia-Chen Lin*, <b>Yijie Lin</b>, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "RDHEHI-MMSB: Reversible Data Hiding in
+        Encrypted Hyperspectral Images Based on Multi-MSB Prediction", submitted
+        to <i>Symmetry</i>. <lg>(2025/03/10)</lg>
+      </li>
+    </ol>
+
+    <h2>Submitted Papers</h2>
+    <ol class="pp">
+      <li>
+        Ching-Chun Chang, <b>Yijie Lin</b> and Isao Echizen, (2025):
+        "Cyber-Physical Steganography in Robotic Control", submitted to
+        <i>IEICE Transactions on Information and Systems</i>.
+        <lg>(2025/02/05)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu*, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "Controllable Morphology between
+        Contour and Colour for Consumer Privacy-Usability Dilemma in
+        Thumbnail-Preserving Encryption", submitted to
+        <i>IEEE Transactions on Consumer Electronics</i>. <lg>(2025/02/06)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu*, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "PM-DHC: Reversible Data Hiding in
+        Encrypted DICOM Images via Pattern Matching and Dynamic Huffman Coding",
+        submitted to <i>IEEE Transactions on Multimedia</i>.
+        <lg>(2025/03/11)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Ching-Chun Chang and <u>Chin-Chen Chang*</u>, (2025):
+        "Tampering Detection in AMBTC Compressed Code Using Matrix Coding",
+        submitted to <i>Electronics</i>. <lg>(2025/03/19)</lg>
+      </li>
+    </ol>
+
+    <h2>Patents</h2>
+    <ol class="pp">
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2024): "A Dual Image Secret Sharing
+        Steganography Method Based on the Puzzle Reference Matrix".
+        <lg>(2024/11)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "Reversible Data Hiding Method for
+        Encrypted DICOM Images based on Pattern Matching and Dynamic Huffman
+        Coding". <lg>(2025/01)</lg>
+      </li>
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "Information Steganography and
+        Tampering Detection Method Based on AMBTC Compression Code".
+        <lg>(2025/01)</lg>
+      </li>
+    </ol>
+
+    <h2>Pending</h2>
+    <ol class="pp">
+      <li>
+        <b>Yijie Lin</b>, Jui‐Chuan Liu, Ching-Chun Chang and
+        <u>Chin-Chen Chang*</u>, (2025): "Tamper detection in AMBTC-VQ
+        compressed images".
+      </li>
+    </ol>
+
+    <button id="themeToggleBtn" class="circle-btn">🌞</button>
+    <button id="toggleAllBtn" class="circle-btn">🔼</button>
+    <button id="scrollToTopBtn" class="circle-btn">🔝</button>
+
+    <footer style="text-align: center; padding: 10px; font-size: 14px">
+      &copy; 2025 Y. L. All rights reserved.
+    </footer>
+
+    <script>
+      const bubbleCount = 6;
+      for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.innerText = "Y. L.";
+        bubble.style.left = Math.random() * 100 + "vw";
+        bubble.style.top = Math.random() * 100 + "vh";
+        let duration = Math.random() * 3 + 4;
+        bubble.style.animationDuration = duration + "s";
+        bubble.addEventListener("mouseenter", () => {
+          bubble.innerText = "Yijie";
+          bubble.style.animationPlayState = "paused";
+        });
+        bubble.addEventListener("mouseleave", () => {
+          bubble.innerText = "Y. L.";
+          bubble.style.animationPlayState = "running";
+        });
+        document.body.appendChild(bubble);
+      }
+
+      document.querySelectorAll("h2").forEach((heading) => {
+        heading.addEventListener("click", () => {
+          const siblingOL = heading.nextElementSibling;
+          if (siblingOL && siblingOL.tagName === "OL") {
+            siblingOL.classList.toggle("hidden");
+          }
+        });
+      });
+
+      let allCollapsed = false;
+      const toggleAllBtn = document.getElementById("toggleAllBtn");
+      toggleAllBtn.addEventListener("click", () => {
+        document.querySelectorAll("ol.pp").forEach((list) => {
+          if (!allCollapsed) {
+            list.classList.add("hidden");
+          } else {
+            list.classList.remove("hidden");
+          }
+        });
+        allCollapsed = !allCollapsed;
+        toggleAllBtn.innerText = allCollapsed ? "🔽" : "🔼";
+      });
+
+      const scrollBtn = document.getElementById("scrollToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (document.documentElement.scrollTop > 200) {
+          scrollBtn.style.display = "flex";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      const themeToggleBtn = document.getElementById("themeToggleBtn");
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        if (document.body.classList.contains("light-mode")) {
+          themeToggleBtn.innerText = "🌜";
+        } else {
+          themeToggleBtn.innerText = "🌞";
+        }
+      });
+
+      function wrapTextNodes(node) {
+        if (node.nodeType === 3) {
+          const re = /Yijie Lin/g;
+          if (node.data.match(re)) {
+            const frag = document
+              .createRange()
+              .createContextualFragment(
+                node.data.replace(
+                  re,
+                  '<span class="highlight">Yijie Lin</span>'
+                )
+              );
+            node.parentNode.replaceChild(frag, node);
+          }
+        } else if (
+          node.nodeType === 1 &&
+          node.childNodes &&
+          !/(script|style|button)/i.test(node.tagName)
+        ) {
+          for (let i = 0; i < node.childNodes.length; i++) {
+            wrapTextNodes(node.childNodes[i]);
+          }
+        }
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        wrapTextNodes(document.body);
+      });
+    </script>
+  </body>
+</html>
