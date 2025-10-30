@@ -277,6 +277,15 @@
         color: var(--text);
       }
 
+      a {
+        color: #00bfff; /* Light blue for better contrast */
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: #ffd700; /* Gold for hover effect */
+      }
+
       .tag {
         display: inline-block;
         border-radius: 10px;
@@ -754,6 +763,12 @@
       &copy; 2025 Y. L. All rights reserved.
     </footer>
 
+    <div style="text-align: center;">
+      <a href="https://info.flagcounter.com/RKnh">
+        <img src="https://s01.flagcounter.com/mini/RKnh/bg_FFFFFF/txt_000000/border_CCCCCC/flags_0/" alt="Flag Counter" border="0">
+      </a>
+    </div>
+
     <script>
       const bubbleCount = 6;
       for (let i = 0; i < bubbleCount; i++) {
@@ -850,11 +865,11 @@
       });
 
       const cvTranslations = {
-        en: "I’m Lin Yijie, currently pursuing a Ph.D. at the Multimedia and Secure Networking Laboratory (MSN Lab), Department of Information Engineering and Computer Science, College of Information and Electrical Engineering, Feng Chia University, under the supervision of Chair Professor Chin-Chen Chang. My research interests include data hiding, information security, image processing, and artificial intelligence. As of October 2025, I have had 16 papers accepted or published in international journals and conferences, including 12 as the first or corresponding author.",
+        en: "I'm <a href=\"https://scholar.google.com/citations?user=cPVwwr4AAAAJ\" target=\"_blank\">Yijie Lin</a>, currently pursuing a Ph.D. at the Multimedia and Secure Networking Laboratory (MSN Lab), Department of Information Engineering and Computer Science, College of Information and Electrical Engineering, Feng Chia University, under the supervision of Chair Professor <a href=\"https://scholar.google.com/citations?user=ObIGorsAAAAJ\" target=\"_blank\">Chin-Chen Chang</a>. My research interests include data hiding, information security, image processing, and artificial intelligence. As of October 2025, I have had 16 papers accepted or published in international journals and conferences, including 12 as the first or corresponding author.",
         "zh-Hans":
-          "我是林翼洁，目前正在逢甲大学资讯电机学院资讯工程系多媒体暨网络安全实验室（MSN Lab）攻读博士学位，师从张真诚讲座教授。我的主要研究兴趣包括：数据隐藏、信息安全、图像处理和人工智能。截至2025年10月，已接受或发表国际期刊及会议论文16篇，其中第一或通讯作者12篇。",
+          "我是<a href=\"https://scholar.google.com/citations?user=cPVwwr4AAAAJ\" target=\"_blank\">林翼洁</a>，目前正在逢甲大学资讯电机学院资讯工程系多媒体暨网络安全实验室（MSN Lab）攻读博士学位，师从<a href=\"https://scholar.google.com/citations?user=ObIGorsAAAAJ\" target=\"_blank\">张真诚</a>讲座教授。我的主要研究兴趣包括：数据隐藏、信息安全、图像处理和人工智能。截至2025年10月，已接受或发表国际期刊及会议论文16篇，其中第一或通讯作者12篇。",
         "zh-Hant":
-          "我是林翼潔，目前正在逢甲大學資訊電機學院資訊工程系「多媒體暨網路安全實驗室（MSN Lab）」攻讀博士學位，師從張真誠講座教授。我的研究興趣主要包括：資料隱藏、資訊安全、影像處理和人工智慧。截至2025年10月，已接受或發表國際期刊及會議論文16篇，其中第一或通訊作者12篇。",
+          "我是<a href=\"https://scholar.google.com/citations?user=cPVwwr4AAAAJ\" target=\"_blank\">林翼潔</a>，目前正在逢甲大學資訊電機學院資訊工程系「多媒體暨網路安全實驗室（MSN Lab）」攻讀博士學位，師從<a href=\"https://scholar.google.com/citations?user=ObIGorsAAAAJ\" target=\"_blank\">張真誠</a>講座教授。我的研究興趣主要包括：資料隱藏、資訊安全、影像處理和人工智慧。截至2025年10月，已接受或發表國際期刊及會議論文16篇，其中第一或通訊作者12篇。",
       };
 
       const asijTranslations = {
@@ -893,9 +908,9 @@
         },
       ];
 
-      document.getElementById("cvContent").textContent = cvTranslations["en"];
-      document.getElementById("asijContent").textContent = asijTranslations["en"];
-      document.getElementById("asicContent").textContent = asicTranslations["en"];
+      document.getElementById("cvContent").innerHTML = cvTranslations["en"];
+      document.getElementById("asijContent").innerHTML = asijTranslations["en"];
+      document.getElementById("asicContent").innerHTML = asicTranslations["en"];
 
       const languageToggleBtn = document.createElement("button");
       languageToggleBtn.id = "languageToggleBtn";
@@ -919,11 +934,11 @@
           document.querySelectorAll("h2").forEach((heading, index) => {
             heading.textContent = headings[index][selectedLanguage];
           });
-          document.getElementById("cvContent").textContent =
+          document.getElementById("cvContent").innerHTML =
             cvTranslations[selectedLanguage];
-          document.getElementById("asijContent").textContent =
+          document.getElementById("asijContent").innerHTML =
             asijTranslations[selectedLanguage];
-          document.getElementById("asicContent").textContent =
+          document.getElementById("asicContent").innerHTML =
             asicTranslations[selectedLanguage];
         }, 500);
       });
@@ -956,7 +971,7 @@
               .createContextualFragment(
                 node.data.replace(
                   re,
-                  '<span class="highlight">Yijie Lin</span>'
+                  '<span style="font-weight: bold;">Yijie Lin</span>'
                 )
               );
             node.parentNode.replaceChild(frag, node);
