@@ -1,0 +1,237 @@
+[
+    {
+        "id": 16,
+        "title": "Sustainable Steganography via Neural Trojans for Geographic Satellite Remote Sensing",
+        "authors": "Yijie Lin, Ching-Chun Chang*, Hanrui Wang, Yuyang Sun, and Isao Echizen",
+        "journal": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+        "year": "2025",
+        "status": "",
+        "tags": ["JCR Q1", "CAS T2"],
+        "links": {
+            "doi": "https://doi.org/10.1109/JSTARS.2025.3649225"
+        }
+    },
+    {
+        "id": 15,
+        "title": "Cyber-Physical Steganography in Robotic Motion Control",
+        "authors": "Ching-Chun Chang, Yijie Lin and Isao Echizen",
+        "journal": "IEICE Transactions on Information and Systems",
+        "year": "2025",
+        "status": "",
+        "tags": [],
+        "links": {
+            "doi": "https://doi.org/10.1587/transinf.2025MUP0001",
+            "pdf": "pdf/Cyber-Physical Steganography in Robotic Motion Control.pdf"
+        }
+    },
+    {
+        "id": 14,
+        "title": "A High-Capacity Reversible Data Hiding Scheme for Encrypted Hyperspectral Images Using Multi-Layer MSB Block Labeling and ERLE Compression",
+        "authors": "Yijie Lin, Chia-Chen Lin*, Zhe-Min Yeh, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Future Internet",
+        "year": "2025",
+        "volume": "17",
+        "issue": "8",
+        "articleId": "378",
+        "status": "",
+        "tags": ["JCR Q2"],
+        "links": {
+            "doi": "https://doi.org/10.3390/fi17080378",
+            "pdf": "pdf/A High-Capacity Reversible Data Hiding Scheme for Encrypted Hyperspectral Images Using Multi-Layer MSB Block Labeling and ERLE Compression.pdf"
+        }
+    },
+    {
+        "id": 13,
+        "title": "Hiding Information in Encrypted Images with (t,n) Secret Sharing for IoT and Cloud Services",
+        "authors": "Yijie Lin, Chia-Chen Lin*, Ching-Chun Chang and Chin-Chen Chang",
+        "journal": "Journal of Information Security and Applications",
+        "year": "2025",
+        "articleId": "104137",
+        "status": "",
+        "tags": ["JCR Q1", "CCF C"],
+        "links": {
+            "doi": "https://doi.org/10.1016/j.jisa.2025.104137",
+            "pdf": "pdf/Hiding Information in Encrypted Images with (t,n) Secret Sharing for IoT and Cloud Services.pdf"
+        }
+    },
+    {
+        "id": 12,
+        "title": "Reversible Data Hiding in Encrypted DICOM Images via Pattern Matching and Dynamic Huffman Coding",
+        "authors": "Yijie Lin, Jui-Chuan Liu*, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Displays",
+        "year": "2025",
+        "articleId": "103105",
+        "status": "",
+        "tags": ["JCR Q1", "CAS T2"],
+        "links": {
+            "doi": "https://doi.org/10.1016/j.displa.2025.103105",
+            "pdf": "pdf/Reversible Data Hiding in Encrypted DICOM Images via Pattern Matching and Dynamic Huffman Coding.pdf"
+        }
+    },
+    {
+        "id": 11,
+        "title": "High-Capacity Reversible Data Hiding in Encrypted Hyperspectral Images Using MSB Prediction and Arithmetic Coding",
+        "authors": "Zhe-Min Yeh, Chia-Chen Lin*, Yijie Lin, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Journal of Information Hiding and Multimedia Signal Processing",
+        "year": "2025",
+        "volume": "16",
+        "issue": "2",
+        "status": "",
+        "tags": [],
+        "links": {
+            "doi": "https://bit.nkust.edu.tw/2025/vol16/N2/20.JIHMSP-250505.pdf",
+            "pdf": "pdf/High-Capacity Reversible Data Hiding in Encrypted Hyperspectral Images Using MSB Prediction and Arithmetic Coding.pdf"
+        }
+    },
+    {
+        "id": 10,
+        "title": "Tampering Detection in AMBTC Compressed Code Using Matrix Coding",
+        "authors": "Yijie Lin, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Electronics",
+        "year": "2025",
+        "volume": "14",
+        "issue": "9",
+        "articleId": "1831",
+        "status": "",
+        "tags": ["JCR Q2"],
+        "links": {
+            "doi": "https://doi.org/10.3390/electronics14091831",
+            "pdf": "pdf/Tampering Detection in Absolute Moment Block Truncation Coding (AMBTC) Compressed Code Using Matrix Coding.pdf"
+        }
+    },
+    {
+        "id": 9,
+        "title": "A Puzzle Matrix Oriented Secret Sharing Scheme for Dual Images with Reversibility",
+        "authors": "Yijie Lin, Jui-Chuan Liu, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Signal Processing",
+        "year": "2025",
+        "articleId": "110056",
+        "status": "",
+        "tags": ["JCR Q2", "CAS T2", "CCF C"],
+        "links": {
+            "doi": "https://doi.org/10.1016/j.sigpro.2025.110056",
+            "pdf": "pdf/A Puzzle Matrix Oriented Secret Sharing Scheme for Dual Images with Reversibility.pdf"
+        }
+    },
+    {
+        "id": 8,
+        "title": "Reversible Data Hiding in Absolute Moment Block Truncation Codes via Arithmetical and Logical Differential Coding",
+        "authors": "Ching-Chun Chang, Yijie Lin*, Jui-Chuan Liu* and Chin-Chen Chang*",
+        "journal": "Cryptography",
+        "year": "2025",
+        "volume": "9",
+        "issue": "1",
+        "articleId": "4",
+        "status": "",
+        "tags": ["JCR Q2"],
+        "links": {
+            "doi": "https://doi.org/10.3390/cryptography9010004",
+            "pdf": "pdf/Reversible Data Hiding in Absolute Moment Block Truncation Codes via Arithmetical and Logical Differential Coding.pdf"
+        }
+    },
+    {
+        "id": 7,
+        "title": "Lossless Recompression of Vector Quantization Index Table for Texture Images Based on Adaptive Huffman Coding through Multi-Type Processing",
+        "authors": "Yijie Lin, Jui-Chuan Liu*, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Symmetry",
+        "year": "2024",
+        "volume": "16",
+        "issue": "11",
+        "articleId": "1419",
+        "status": "",
+        "tags": ["JCR Q2"],
+        "links": {
+            "doi": "https://doi.org/10.3390/sym16111419",
+            "pdf": "pdf/Lossless Recompression of Vector Quantization Index Table for Texture Images Based on Adaptive Huffman Coding.pdf"
+        }
+    },
+    {
+        "id": 6,
+        "title": "An IoT-Based Electronic Health Protection Mechanism with AMBTC Compressed Images",
+        "authors": "Yijie Lin, Chia-Chen Lin*, Ching-Chun Chang and Chin-Chen Chang",
+        "journal": "IEEE Internet of Things Journal",
+        "year": "2024",
+        "status": "",
+        "tags": ["JCR Q1", "CAS T1 TOP", "CCF C"],
+        "links": {
+            "doi": "https://doi.org/10.1109/JIOT.2024.3467152",
+            "pdf": "pdf/An IoT-Based Electronic Health Protection Mechanism with AMBTC Compressed Images.pdf"
+        }
+    },
+    {
+        "id": 5,
+        "title": "An Innovative Recompression Scheme for VQ Index Tables",
+        "authors": "Yijie Lin, Jui-Chuan Liu, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Future Internet",
+        "year": "2024",
+        "volume": "16",
+        "issue": "8",
+        "articleId": "297",
+        "status": "",
+        "tags": ["JCR Q2"],
+        "links": {
+            "doi": "https://doi.org/10.3390/fi16080297",
+            "pdf": "pdf/An Efficient Recompression Scheme for Vector Quantization Index Table Based on Search-Order Coding and Side Match Algorithm.pdf"
+        }
+    },
+    {
+        "id": 4,
+        "title": "A Side Match Oriented Data Hiding Based on Absolute Moment Block Truncation Encoding Mechanism with Reversibility",
+        "authors": "Jui-Chuan Liu, Yijie Lin, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Multimedia Tools and Applications",
+        "year": "2024",
+        "status": "",
+        "tags": ["JCR Q2", "CCF C"],
+        "links": {
+            "doi": "https://doi.org/10.1007/s11042-024-19752-1",
+            "pdf": "pdf/A Side Match Oriented Data Hiding Based on Absolute Moment Block Truncation Encoding Mechanism with Reversibility.pdf"
+        }
+    },
+    {
+        "id": 3,
+        "title": "Embedding Secret Data in a Vector Quantization Codebook Using a Novel Thresholding Scheme",
+        "authors": "Yijie Lin, Jui-Chuan Liu, Ching-Chun Chang and Chin-Chen Chang*",
+        "journal": "Mathematics",
+        "year": "2024",
+        "volume": "12",
+        "issue": "9",
+        "articleId": "1332",
+        "status": "",
+        "tags": ["JCR Q1"],
+        "links": {
+            "doi": "https://doi.org/10.3390/math12091332",
+            "pdf": "pdf/Embedding Secret Data in a Vector Quantization Codebook Using a Novel Thresholding Scheme.pdf"
+        }
+    },
+    {
+        "id": 2,
+        "title": "A Matrix Coding Oriented Reversible Data Hiding Scheme Using Dual Digital Images",
+        "authors": "Jui-Chuan Liu, Ching-Chun Chang, Yijie Lin*, Chin-Chen Chang* and Ji-Hwei Horng",
+        "journal": "Mathematics",
+        "year": "2024",
+        "volume": "12",
+        "issue": "1",
+        "articleId": "86",
+        "status": "",
+        "tags": ["JCR Q1"],
+        "links": {
+            "doi": "https://doi.org/10.3390/math12010086",
+            "pdf": "pdf/A Matrix Coding Oriented Reversible Data Hiding Scheme Using Dual Digital Images.pdf"
+        }
+    },
+    {
+        "id": 1,
+        "title": "Verifiable (t,n) Secret Image Sharing Scheme Based on Slim Turtle Shell Matrix",
+        "authors": "Yijie Lin, Chia-Chen Lin, Jui-Chuan Liu and Chin-Chen Chang*",
+        "journal": "Journal of Information Security and Applications",
+        "year": "2024",
+        "volume": "80",
+        "articleId": "103679",
+        "status": "",
+        "tags": ["JCR Q1", "CAS T2", "CCF C"],
+        "links": {
+            "doi": "https://doi.org/10.1016/j.jisa.2023.103679",
+            "pdf": "pdf/Verifiable (t,n) Secret Image Sharing Scheme Based on Slim Turtle Shell Matrix.pdf"
+        }
+    }
+]

@@ -1,0 +1,23 @@
+{
+    "journals": [
+        { "name": "IEEE Transactions on Information Forensics and Security", "tags": ["JCR Q1", "CAS T1 TOP", "CCF A"] },
+        { "name": "Information Processing and Management", "tags": ["JCR Q1", "CAS T1 TOP", "CCF B"] },
+        { "name": "Expert Systems with Applications", "tags": ["JCR Q1", "CAS T1 TOP", "CCF C"] },
+        { "name": "Information Sciences", "tags": ["JCR Q1", "CAS T2", "CCF B"] },
+        { "name": "Neurocomputing", "tags": ["JCR Q1", "CAS T2", "CCF C"] },
+        { "name": "Computer Standards & Interfaces", "tags": ["JCR Q2", "CAS T2"] },
+        { "name": "Scientific Reports", "tags": ["JCR Q1"] },
+        { "name": "Cluster Computing", "tags": ["JCR Q1"] },
+        { "name": "Journal of Information Security and Applications", "tags": ["JCR Q2", "CCF C"] },
+        { "name": "The Journal of Supercomputing", "tags": ["JCR Q2", "CCF C"] },
+        { "name": "Peer-to-Peer Networking and Applications", "tags": ["JCR Q2", "CCF C"] },
+        { "name": "Multimedia Systems", "tags": ["JCR Q2", "CCF C"] },
+        { "name": "Annals of Telecommunications" },
+        { "name": "Signal, Image and Video Processing" },
+        { "name": "Discover Applied Sciences" },
+        { "name": "Discover Networks" }
+    ],
+    "conferences": [
+        { "name": "The 3rd International Conference on Computer Technology and Information Science (CTIS 2025)" }
+    ]
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yijie Lin（林翼洁）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="scrollProgress"></div>
+    <canvas id="neuralCanvas"></canvas>
+    
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <div class="container">
+        <header class="glass-panel fade-in-down">
+            <div class="logo-area">
+                <div class="logo glitch-text" data-text="Yijie Lin">Yijie Lin</div>
+                <div class="subtitle">Academic Profile</div>
+            </div>
+            <div class="controls">
+                <button id="langBtn" class="icon-btn magnetic-btn">
+                    <span class="lang-text">EN/中</span>
+                </button>
+                <button id="themeBtn" class="icon-btn magnetic-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <section id="profile" class="glass-panel profile-card scroll-reveal">
+            <div class="profile-layout">
+                <div class="profile-text">
+                    <h1 id="typingTitle"></h1>
+                    <div class="bio-wrapper" id="bioContent">
+                        <div class="loading-text">> Initializing profile data...</div>
+                    </div>
+                </div>
+                
+                <div class="profile-image-container tilt-element">
+                    <div class="stego-console">
+                        <div class="console-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="console-title">STEGONOGRAPHY</span>
+                        </div>
+                        <div class="img-frame stego-frame">
+                            <img src="img/decryption.jpg" id="decryptedImg" class="profile-img layer-bottom" alt="Decrypted">
+                            <div class="encrypted-layer" id="encryptedLayer">
+                                <img src="img/encryption.jpg" class="profile-img" alt="Encrypted">
+                            </div>
+                            <div class="scan-line" id="scanLine"></div>
+                            <div class="img-glow"></div>
+                        </div>
+                        <div class="stego-controls">
+                            <div class="secret-data-box">
+                                <span class="label">> SECRET:</span>
+                                <span id="secretText" class="scramble-text">ENCRYPTED_DATA</span>
+                            </div>
+                            <button id="decryptBtn" class="decrypt-btn">
+                                <i class="fas fa-terminal"></i> <span id="btnText">DECRYPT</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tab-navigation scroll-reveal">
+            <button class="tab-btn active" data-tab="journals">
+                <i class="fas fa-book"></i> <span data-i18n="navJournals">Journal Papers</span>
+            </button>
+            <button class="tab-btn" data-tab="conferences">
+                <i class="fas fa-users"></i> <span data-i18n="navConferences">Conference Papers</span>
+            </button>
+            <button class="tab-btn" data-tab="patents">
+                <i class="fas fa-certificate"></i> <span data-i18n="navPatents">Patents</span>
+            </button>
+            <button class="tab-btn" data-tab="service">
+                <i class="fas fa-hand-holding-heart"></i> <span data-i18n="navService">Service</span>
+            </button>
+        </div>
+
+        <div class="tab-content-container">
+            <section id="journals" class="tab-pane active">
+                <div id="journalList" class="card-grid spotlight-group">
+                    <div class="loading">Waiting for data stream...</div>
+                </div>
+            </section>
+            <section id="conferences" class="tab-pane">
+                <div id="confList" class="card-grid spotlight-group"></div>
+            </section>
+            <section id="patents" class="tab-pane">
+                <div id="patentList" class="card-grid spotlight-group"></div>
+            </section>
+            <section id="service" class="tab-pane">
+                <div class="glass-panel service-panel">
+                    <h3 data-i18n="serviceJournal">Journal Reviewer</h3>
+                    <ul id="serviceJournalList" class="simple-list"></ul>
+                    <hr class="divider">
+                    <h3 data-i18n="serviceConf">Conference Reviewer</h3>
+                    <ul id="serviceConfList" class="simple-list"></ul>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Y. L. All rights reserved.</p>
+            <div class="flag-counter">
+                 <a href="https://info.flagcounter.com/RKnh">
+                    <img src="https://s01.flagcounter.com/mini/RKnh/bg_FFFFFF/txt_000000/border_CCCCCC/flags_0/" alt="Flag Counter" style="border:0;">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <button id="scrollTop" class="magnetic-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
