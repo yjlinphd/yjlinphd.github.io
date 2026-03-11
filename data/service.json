@@ -5,6 +5,7 @@
         { "name": "Expert Systems with Applications", "tags": ["JCR Q1", "CAS T1 TOP", "CCF C"] },
         { "name": "Information Sciences", "tags": ["JCR Q1", "CAS T2", "CCF B"] },
         { "name": "Neurocomputing", "tags": ["JCR Q1", "CAS T2", "CCF C"] },
+        { "name": "Nonlinear Dynamics", "tags": ["JCR Q1", "CAS T2"] },
         { "name": "Computer Standards & Interfaces", "tags": ["JCR Q2", "CAS T2"] },
         { "name": "Scientific Reports", "tags": ["JCR Q1"] },
         { "name": "Cluster Computing", "tags": ["JCR Q1"] },

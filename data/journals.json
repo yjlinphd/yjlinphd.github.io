@@ -8,7 +8,8 @@
         "status": "",
         "tags": ["JCR Q1", "CAS T2"],
         "links": {
-            "doi": "https://doi.org/10.1109/JSTARS.2025.3649225"
+            "doi": "https://doi.org/10.1109/JSTARS.2025.3649225",
+            "pdf": "pdf/Sustainable Steganography via Neural Trojans for Geographic Satellite Remote Sensing.pdf"
         }
     },
     {
