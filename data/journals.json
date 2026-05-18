@@ -1,6 +1,6 @@
 [
     {
-        "id": 16,
+        "id": 17,
         "title": "High-Payload and Secure Data Hiding for Medical Images in IoMT-Based eHealth Systems",
         "authors": "Yichen Wang, Yijie Lin*, Ching-Chun Chang, Chin-Chen Chang*, and Wu-Yuin Hwang",
         "journal": "Sensors",
@@ -20,6 +20,8 @@
         "authors": "Yijie Lin, Ching-Chun Chang*, Hanrui Wang, Yuyang Sun, and Isao Echizen",
         "journal": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
         "year": "2025",
+        "volume": "19",
+        "pages": "5155-5167",
         "tags": ["JCR Q1", "CAS T2"],
         "links": {
             "doi": "https://doi.org/10.1109/JSTARS.2025.3649225",
@@ -31,7 +33,10 @@
         "title": "Cyber-Physical Steganography in Robotic Motion Control",
         "authors": "Ching-Chun Chang, Yijie Lin and Isao Echizen",
         "journal": "IEICE Transactions on Information and Systems",
-        "year": "2025",
+        "year": "2026",
+        "volume": "E109.D",
+        "issue": "4",
+        "pages": "485-495",
         "tags": [],
         "links": {
             "doi": "https://doi.org/10.1587/transinf.2025MUP0001",
@@ -156,7 +161,10 @@
         "title": "An IoT-Based Electronic Health Protection Mechanism with AMBTC Compressed Images",
         "authors": "Yijie Lin, Chia-Chen Lin*, Ching-Chun Chang and Chin-Chen Chang",
         "journal": "IEEE Internet of Things Journal",
-        "year": "2024",
+        "year": "2025",
+        "volume": "12",
+        "issue": "3",
+        "pages": "2430-2444",
         "tags": ["JCR Q1", "CAS T1 TOP", "CCF C"],
         "links": {
             "doi": "https://doi.org/10.1109/JIOT.2024.3467152",
@@ -183,7 +191,9 @@
         "title": "A Side Match Oriented Data Hiding Based on Absolute Moment Block Truncation Encoding Mechanism with Reversibility",
         "authors": "Jui-Chuan Liu, Yijie Lin, Ching-Chun Chang and Chin-Chen Chang*",
         "journal": "Multimedia Tools and Applications",
-        "year": "2024",
+        "year": "2025",
+        "volume": "84",
+        "pages": "18395–18417",
         "tags": ["JCR Q2", "CCF C"],
         "links": {
             "doi": "https://doi.org/10.1007/s11042-024-19752-1",
