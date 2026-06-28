@@ -7,6 +7,7 @@
         { "name": "Information Sciences", "tags": ["JCR Q1", "CAS T2", "CCF B"] },
         { "name": "Neurocomputing", "tags": ["JCR Q1", "CAS T2", "CCF C"] },
         { "name": "Nonlinear Dynamics", "tags": ["JCR Q1", "CAS T2"] },
+        { "name": "Journal of King Saud University Computer and Information Sciences", "tags": ["JCR Q1", "CAS T2"] },
         { "name": "Computer Standards & Interfaces", "tags": ["JCR Q2", "CAS T2"] },
         { "name": "Scientific Reports", "tags": ["JCR Q1"] },
         { "name": "Cluster Computing", "tags": ["JCR Q1"] },
@@ -17,6 +18,7 @@
         { "name": "Electronics", "tags": ["JCR Q2"] },
         { "name": "Annals of Telecommunications" },
         { "name": "Signal, Image and Video Processing" },
+        { "name": "Discover Computing" },
         { "name": "Discover Applied Sciences" },
         { "name": "Discover Networks" }
     ],
