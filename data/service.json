@@ -18,8 +18,10 @@
         { "name": "Electronics", "tags": ["JCR Q2"] },
         { "name": "Annals of Telecommunications" },
         { "name": "Signal, Image and Video Processing" },
+        { "name": "CMC-Computers, Materials & Continua"},
         { "name": "Discover Computing" },
         { "name": "Discover Applied Sciences" },
+        { "name": "Computer Systems Science and Engineering" },
         { "name": "Discover Networks" }
     ],
     "conferences": [
