@@ -111,28 +111,28 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement('div');
             card.className = 'paper-card tilt-card';
             card.style.animationDelay = `${idx * 100}ms`;
-            
+
             const indexHtml = `<span class="index-num" style="color:var(--text-secondary); font-weight:600; opacity:0.7; margin-right:8px; display:inline-block; min-width:25px;">#${idx + 1}</span>`;
             const authors = p.authors ? p.authors.replace(/(Yijie Lin|林翼洁)/g, '<span style="color:var(--accent);font-weight:700;">$1</span>') : '';
-            
+
             let statusTagHtml = '';
             if (p.status) {
                 let tagStyle = '';
                 if (p.status.includes('实质审查')) {
-                    tagStyle = 'background: rgba(245, 158, 11, 0.1); color: #f59e0b;'; 
+                    tagStyle = 'background: rgba(245, 158, 11, 0.1); color: #f59e0b;';
                 } else if (p.status.includes('发明授权')) {
-                    tagStyle = 'background: rgba(16, 185, 129, 0.1); color: #10b981;'; 
+                    tagStyle = 'background: rgba(16, 185, 129, 0.1); color: #10b981;';
                 }
                 statusTagHtml = `<div class="tags" style="margin-top:8px"><span class="tag" style="${tagStyle}">${p.status}</span></div>`;
             }
-            
+
             card.innerHTML = `
                 <div class="paper-title">${indexHtml}${p.title}</div>
                 <div style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:5px;">${authors}</div>
                 ${p.id ? `<div style="font-size:0.85rem; opacity:0.8;">No. ${p.id}</div>` : ''}
                 ${statusTagHtml}
             `;
-            
+
             dom.patents.appendChild(card);
             initTilt(card);
         });
@@ -153,12 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (p.sponsor) projectInfo.push(p.sponsor);
             if (p.id) projectInfo.push(`No. ${p.id}`);
             if (p.period) projectInfo.push(p.period);
+
             const infoText = projectInfo.join(' | ');
 
             card.innerHTML = `
                 <div class="paper-title">${indexHtml}${p.title}</div>
                 <div style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:5px;">${p.role || 'N/A'}</div>
                 <div style="font-size:0.85rem; opacity:0.8;">${infoText}</div>
+                ${p.amount ? `<div style="font-size:0.85rem; margin-top:6px; color:var(--accent);">Project Amount: ${p.amount}</div>` : ''}
             `;
 
             dom.projects.appendChild(card);
