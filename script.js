@@ -163,10 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!data || data.length === 0) return;
 
         const isEnglish = state.lang === 'en';
-        const sponsorLabel = isEnglish ? 'Sponsor' : '资助机构';
-        const idLabel = isEnglish ? 'No.' : '项目编号';
-        const amountLabel = isEnglish ? 'Funding' : '项目总经费';
-        const periodLabel = isEnglish ? 'Period' : '执行期间';
+        const sponsorLabel = isEnglish ? 'Sponsor' : '机构';
+        const idLabel = isEnglish ? 'No.' : '编号';
+        const amountLabel = isEnglish ? 'Funding' : '经费';
+        const periodLabel = isEnglish ? 'Period' : '期间';
 
         data.forEach((p, idx) => {
             const card = document.createElement('div');
