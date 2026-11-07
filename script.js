@@ -79,8 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return tags.map(tag => {
             const label = state.lang === 'en' ? tag : tag
                 .replace(/^JCR Q([1-4])$/, (_, zone) => `JCR${zones[zone]}区`)
-                .replace(/^CAS T([1-4])( TOP)?$/, (_, zone, top) => `中科院${zones[zone]}区${top ?? ''}`)
-                .replace(/^CCF ([ABC])$/, 'CCF $1类');
+                .replace(/^CAS T([1-4])( TOP)?$/, (_, zone, top) => `中科院${zones[zone]}区${top ?? ''}`);
             return `<span class="tag" data-type="${tag}">${label}</span>`;
         }).join('');
     }
