@@ -1,0 +1,26 @@
+[
+    {
+        "title": "一种基于拼图参考矩阵的双图像秘密共享隐写方法及系统",
+        "authors": "林翼洁, 刘瑞娟, 张靖群, 张真诚, 袁文强",
+        "id": "CN119728867A",
+        "status": "实质审查",
+        "titleEn": "Dual-Image Secret Sharing Steganography Method and System Using a Puzzle Reference Matrix",
+        "authorsEn": "Yijie Lin, Jui-Chuan Liu, Jingqun Zhang, Chin-Chen Chang, Wenqiang Yuan"
+    },
+    {
+        "title": "一种基于模式和动态编码的加密医学影像信息隐藏方法及系统",
+        "authors": "林翼洁, 刘瑞娟, 张靖群, 张真诚, 李黎",
+        "id": "CN120091087A",
+        "status": "实质审查",
+        "titleEn": "Information Hiding Method and System for Encrypted Medical Images Using Pattern Matching and Dynamic Coding",
+        "authorsEn": "Yijie Lin, Jui-Chuan Liu, Jingqun Zhang, Chin-Chen Chang, Li Li"
+    },
+    {
+        "title": "一种基于AMBTC压缩码的信息隐写方法及篡改检测系统",
+        "authors": "林翼洁, 刘瑞娟, 张靖群, 张真诚, 李黎",
+        "id": "CN120091131A",
+        "status": "实质审查",
+        "titleEn": "Information Hiding Method and Tamper Detection System for AMBTC Codes",
+        "authorsEn": "Yijie Lin, Jui-Chuan Liu, Jingqun Zhang, Chin-Chen Chang, Li Li"
+    }
+]
