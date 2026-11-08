@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function init() {
         applyTheme();
+        playOpening();
         await loadData();
         if (state.data.profile) {
             const { en, zh_Hans } = state.data.profile.intro;
@@ -44,6 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
         setupSteganography();
         setupClickEffects();
         typeWriter("Yijie Lin（林翼洁）", dom.title);
+    }
+
+    function playOpening() {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        try {
+            if (sessionStorage.getItem('openingPlayed')) return;
+            sessionStorage.setItem('openingPlayed', '1');
+        } catch {
+            // The opening still works when storage is unavailable.
+        }
+
+        const opening = document.createElement('div');
+        opening.className = 'site-opening';
+        opening.setAttribute('aria-hidden', 'true');
+        opening.innerHTML = '<div class="opening-mark"><span>Yijie Lin</span><span>Academic Profile</span></div>';
+        document.body.appendChild(opening);
+        opening.addEventListener('animationend', event => {
+            if (event.target === opening) opening.remove();
+        });
     }
 
     async function loadData() {
