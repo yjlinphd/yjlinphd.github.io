@@ -48,23 +48,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function playOpening() {
-        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        try {
-            if (sessionStorage.getItem('openingPlayed')) return;
-            sessionStorage.setItem('openingPlayed', '1');
-        } catch {
-            // The opening still works when storage is unavailable.
-        }
-
-        const opening = document.createElement('div');
+        const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+        const opening = document.createElement('dialog');
         opening.className = 'site-opening';
-        opening.setAttribute('aria-hidden', 'true');
-        opening.innerHTML = '<div class="opening-mark"><span>Yijie Lin</span><span>Academic Profile</span></div>';
+        opening.setAttribute('aria-labelledby', 'openingTitle');
+        opening.setAttribute('aria-describedby', 'openingHint');
+        const zh = state.lang === 'zh';
+        opening.innerHTML = `
+            <div class="opening-scene">
+                <div class="opening-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="opening-mark">
+                    <p class="opening-status"><span aria-hidden="true"></span>${zh ? '信号已锁定' : 'SIGNAL LOCKED'}</p>
+                    <h1 id="openingTitle" lang="en">Yijie Lin</h1>
+                    <p class="opening-subtitle" lang="en">Academic Profile</p>
+                    <button class="opening-enter" autofocus>${zh ? '进入主页' : 'Enter Profile'} <span aria-hidden="true">→</span></button>
+                    <p id="openingHint" ${reducedMotion.matches ? 'hidden' : ''}>${zh ? '轻触空白处，发射信号' : 'Tap the field to send a pulse'}</p>
+                </div>
+            </div>
+            <div class="opening-scan" aria-hidden="true"></div>
+        `;
         document.body.appendChild(opening);
-        opening.addEventListener('animationend', event => {
-            if (event.target === opening) opening.remove();
+        const enter = opening.querySelector('.opening-enter');
+        opening.addEventListener('cancel', event => event.preventDefault());
+        opening.addEventListener('pointermove', event => {
+            event.stopPropagation();
+            if (reducedMotion.matches || event.pointerType !== 'mouse') return;
+            opening.style.setProperty('--opening-x', `${event.clientX}px`);
+            opening.style.setProperty('--opening-y', `${event.clientY}px`);
         });
+        opening.addEventListener('click', event => {
+            event.stopPropagation();
+            if (reducedMotion.matches || enter.contains(event.target) || opening.classList.contains('is-entering')) return;
+            const pulses = opening.querySelectorAll('.opening-pulse');
+            if (pulses.length >= 8) pulses[0].remove();
+            const pulse = document.createElement('span');
+            pulse.className = 'opening-pulse';
+            pulse.setAttribute('aria-hidden', 'true');
+            pulse.style.left = `${event.clientX}px`;
+            pulse.style.top = `${event.clientY}px`;
+            opening.appendChild(pulse);
+            pulse.addEventListener('animationend', () => pulse.remove(), { once: true });
+        });
+        enter.addEventListener('click', () => {
+            if (opening.classList.contains('is-entering')) return;
+            if (reducedMotion.matches) {
+                finish();
+                return;
+            }
+            opening.classList.add('is-entering');
+            const reveal = opening.getAnimations().find(animation => animation.animationName === 'opening-reveal');
+            if (reveal) reveal.finished.then(finish, finish);
+            else finish();
+        });
+        opening.showModal();
+
+        function finish() {
+            opening.close();
+            opening.remove();
+            document.querySelector('.tab-btn.active').focus({ preventScroll: true });
+        }
     }
 
     async function loadData() {
