@@ -44,9 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setupTabs();
         setupSteganography();
         setupClickEffects();
-        document.querySelectorAll('[data-dock-target]').forEach(button => {
-            button.addEventListener('click', () => document.getElementById(button.dataset.dockTarget).click());
-        });
         typeWriter("Yijie Lin（林翼洁）", dom.title);
     }
 
@@ -65,12 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span class="opening-beacon" aria-hidden="true"></span>
                     <h1 id="openingTitle" lang="en">Yijie Lin</h1>
                     <button class="opening-enter" autofocus>${zh ? '进入主页' : 'Enter Profile'} <span aria-hidden="true">→</span></button>
-                    <details class="signal-game">
-                        <summary>${zh ? '捕捉信号' : 'Catch the signal'}</summary>
-                        <p class="signal-score" aria-live="polite">0 / 5</p>
-                        <div class="signal-board"></div>
-                        <button type="button" class="signal-reset">${zh ? '再玩一次' : 'Play again'}</button>
-                    </details>
                 </div>
             </div>
             <div class="opening-scan" aria-hidden="true"></div>
@@ -78,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(opening);
         const enter = opening.querySelector('.opening-enter');
         const gridCell = opening.querySelector('.opening-grid-cell');
-        setupSignalGame(opening, zh);
 
         function lightGridCell(event) {
             gridCell.style.left = `${Math.floor(event.clientX / 42) * 42}px`;
@@ -124,41 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
             opening.close();
             opening.remove();
             document.querySelector('.tab-btn.active').focus({ preventScroll: true });
-        }
-    }
-
-    function setupSignalGame(opening, zh) {
-        const board = opening.querySelector('.signal-board');
-        const score = opening.querySelector('.signal-score');
-        const reset = opening.querySelector('.signal-reset');
-        let caught = 0;
-        let position = 4;
-        const cells = Array.from({ length: 9 }, (_, index) => {
-            const cell = document.createElement('button');
-            cell.type = 'button';
-            cell.setAttribute('aria-label', zh ? `捕捉信号，格子 ${index + 1}` : `Catch signal, cell ${index + 1}`);
-            cell.addEventListener('click', () => {
-                caught++;
-                position = (position + 1 + Math.floor(Math.random() * 8)) % cells.length;
-                updateBoard();
-                (caught === 5 ? reset : cells[position]).focus({ preventScroll: true });
-            });
-            board.appendChild(cell);
-            return cell;
-        });
-        reset.addEventListener('click', () => {
-            caught = 0;
-            position = 4;
-            updateBoard();
-            cells[position].focus({ preventScroll: true });
-        });
-        updateBoard();
-
-        function updateBoard() {
-            const complete = caught === 5;
-            score.textContent = complete ? (zh ? '已捕捉全部 5 个信号' : 'All 5 signals caught') : `${caught} / 5`;
-            cells.forEach((cell, index) => { cell.disabled = complete || index !== position; });
-            reset.hidden = !complete;
         }
     }
 
@@ -679,13 +634,6 @@ document.addEventListener("DOMContentLoaded", () => {
         placeIndicator(active);
         navigation.classList.add('has-tab-indicator');
         new ResizeObserver(() => placeIndicator(active)).observe(navigation);
-        document.querySelectorAll('[data-shortcut]').forEach(shortcut => {
-            shortcut.addEventListener('click', () => {
-                const target = navigation.querySelector(`[data-tab="${shortcut.dataset.shortcut}"]`);
-                target.click();
-                target.focus();
-            });
-        });
         btns.forEach(btn => {
             btn.addEventListener('click', () => {
                 if (btn === active) return;

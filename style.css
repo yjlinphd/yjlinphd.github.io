@@ -126,58 +126,6 @@ html:has(.site-opening[open]) { overflow: hidden; }
     box-shadow: 0 0 20px var(--accent-glow);
     pointer-events: none;
 }
-.signal-game { margin-top: 0.8rem; }
-.signal-game summary { color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; }
-.signal-score { margin-block: 0.35rem; font: 0.85rem var(--font-code); }
-.signal-board {
-    display: grid;
-    grid-template-columns: repeat(3, 2rem);
-    justify-content: center;
-    gap: 0.3rem;
-}
-.signal-board button, .signal-reset {
-    border: 1px solid var(--glass-border);
-    border-radius: 0.4rem;
-    background: var(--tag-bg);
-    color: var(--text-primary);
-}
-.signal-board button { aspect-ratio: 1; }
-.signal-board button:disabled { cursor: default; }
-.signal-board button:enabled { background: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
-.signal-reset { margin-top: 0.4rem; padding: 0.25rem 0.6rem; }
-.opening-scene:has(.signal-game[open]) { overflow-y: auto; }
-
-.site-dock {
-    position: fixed;
-    z-index: 1000;
-    inset-inline-end: max(0.75rem, env(safe-area-inset-right));
-    bottom: max(0.75rem, env(safe-area-inset-bottom));
-    display: flex;
-    gap: 0.35rem;
-    padding: 0.35rem;
-    border: 1px solid var(--glass-border);
-    border-radius: 1rem;
-    background: var(--bg-color);
-    box-shadow: var(--shadow);
-}
-.site-dock button {
-    min-width: 2.75rem;
-    min-height: 2.75rem;
-    padding-inline: 0.35rem;
-    border: 1px solid transparent;
-    border-radius: 0.65rem;
-    background: var(--tag-bg);
-    color: var(--text-primary);
-    font: 600 0.8rem 'Inter', sans-serif;
-}
-.site-dock button:is(:hover, :focus-visible) { border-color: var(--accent); }
-body:has(.site-dock) #scrollTop { display: none; }
-body:has(.site-dock) footer { padding-bottom: 4.5rem; }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    .site-dock button { transition: transform 160ms ease; }
-    .site-dock button:hover { transform: translateY(-4px) scale(1.15); }
-    .site-dock button:hover + button, .site-dock button:has(+ button:hover) { transform: translateY(-2px) scale(1.06); }
-}
 .opening-mark {
     width: min(88vw, 29rem);
     padding: clamp(1rem, 4vmin, 2.5rem);
@@ -296,32 +244,6 @@ body:has(.site-dock) footer { padding-bottom: 4.5rem; }
 .opening-mark { position: relative; isolation: isolate; }
 .opening-enter { position: relative; overflow: hidden; }
 
-.profile-shortcuts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-    gap: 0.8rem;
-    margin-top: 1rem;
-}
-.profile-shortcuts button {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border: 1px solid var(--glass-border);
-    border-radius: 0.85rem;
-    background: var(--card-bg);
-    color: var(--text-primary);
-    text-align: start;
-    font: inherit;
-    font-weight: 600;
-}
-.profile-shortcuts button :is(i, span:last-child) { color: var(--accent); }
-.profile-shortcuts button span:last-child { margin-inline-start: auto; }
-.profile-shortcuts button:is(:hover, :focus-visible) {
-    border-color: var(--accent);
-    background: linear-gradient(115deg, var(--tag-bg), var(--card-bg));
-}
-
 @media (prefers-reduced-motion: no-preference) {
     .opening-mark::after {
         content: "";
@@ -340,8 +262,6 @@ body:has(.site-dock) footer { padding-bottom: 4.5rem; }
         background: linear-gradient(110deg, transparent 36%, var(--accent-glow) 50%, transparent 64%);
         animation: opening-button-shimmer 4s ease-in-out infinite;
     }
-    .profile-shortcuts button { transition: transform 180ms ease, border-color 180ms ease; }
-    .profile-shortcuts button:is(:hover, :focus-visible) { transform: translateY(-3px); }
 }
 @keyframes opening-border-beam { to { background-position: 100% 0; } }
 @keyframes opening-button-shimmer {
