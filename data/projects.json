@@ -7,7 +7,7 @@
         "period": "2023.08 - 2026.07",
         "role": [
             "主要参与人员",
-            "海报展示"
+            "海报发表"
         ],
         "roleEn": [
             "Key Member",
@@ -17,9 +17,8 @@
         "amountEn": "approx. NT$3.24 million",
         "presentation": {
             "event": "MC & WASN 2026",
-            "url": "https://sites.google.com/view/mcwasn2026/",
-            "description": "NSTC 资讯学门成果发表展 · 国立中兴大学 · 2026.08",
-            "descriptionEn": "NSTC Computer Science Research Results Exhibition · National Chung Hsing University · 2026.08"
+            "description": "NSTC 资讯学门成果发表展 · 国立中兴大学 · 2026.08.25",
+            "descriptionEn": "NSTC Computer Science Research Results Exhibition · National Chung Hsing University · 2026.08.25"
         }
     },
     {
@@ -30,7 +29,7 @@
         "period": "2023.08 - 2026.07",
         "role": [
             "主要参与人员",
-            "海报展示"
+            "海报发表"
         ],
         "roleEn": [
             "Key Member",
@@ -40,9 +39,8 @@
         "amountEn": "approx. NT$3.01 million",
         "presentation": {
             "event": "WCE 2025",
-            "url": "https://sites.google.com/view/wce-2025",
-            "description": "NSTC 智慧计算学门成果发表会 · 亚洲大学 · 2025.12",
-            "descriptionEn": "NSTC Intelligent Computing Research Results Presentation · Asia University · 2025.12"
+            "description": "NSTC 智慧计算学门成果发表会 · 亚洲大学 · 2025.12.05",
+            "descriptionEn": "NSTC Intelligent Computing Research Results Presentation · Asia University · 2025.12.05"
         }
     }
 ]

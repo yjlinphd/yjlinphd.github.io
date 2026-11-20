@@ -253,16 +253,12 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             if (p.presentation) {
-                const { event, url, description, descriptionEn } = p.presentation;
+                const { event, description, descriptionEn } = p.presentation;
                 const row = document.createElement('div');
                 const label = document.createElement('span');
                 label.className = 'record-label';
-                label.textContent = isEnglish ? 'Presentation' : '成果展示';
-                const link = document.createElement('a');
-                link.className = 'paper-link';
-                link.href = url;
-                link.textContent = event;
-                row.append(label, ' ', link, ` · ${isEnglish ? descriptionEn : description}`);
+                label.textContent = isEnglish ? 'Presentation' : '成果发表';
+                row.append(label, ` ${event} · ${isEnglish ? descriptionEn : description}`);
                 card.querySelector('.record-detail').appendChild(row);
             }
 
