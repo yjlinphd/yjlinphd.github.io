@@ -21,6 +21,7 @@
         { "name": "Multimedia Systems", "tags": ["JCR Q2", "CCF C"] },
         { "name": "Computers", "tags": ["JCR Q2"] },
         { "name": "Electronics", "tags": ["JCR Q2"] },
+        { "name": "Algorithms", "tags": ["JCR Q2"] },
         { "name": "Data", "tags": ["JCR Q2"] },
         { "name": "Signal, Image and Video Processing", "tags": ["JCR Q3"] },
         { "name": "CMC-Computers, Materials & Continua", "tags": ["JCR Q3"] },

@@ -252,6 +252,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
+            if (p.presentation) {
+                const { event, url, description, descriptionEn } = p.presentation;
+                const row = document.createElement('div');
+                const label = document.createElement('span');
+                label.className = 'record-label';
+                label.textContent = isEnglish ? 'Presentation' : '成果展示';
+                const link = document.createElement('a');
+                link.className = 'paper-link';
+                link.href = url;
+                link.textContent = event;
+                row.append(label, ' ', link, ` · ${isEnglish ? descriptionEn : description}`);
+                card.querySelector('.record-detail').appendChild(row);
+            }
+
             dom.projects.appendChild(card);
             initTilt(card);
         });
