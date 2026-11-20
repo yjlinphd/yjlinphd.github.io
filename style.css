@@ -103,6 +103,81 @@ html:has(.site-opening[open]) { overflow: hidden; }
 }
 .opening-orbits i:nth-child(2) { width: min(72vmin, 34rem); border-top-style: dashed; }
 .opening-orbits i:nth-child(3) { width: min(94vmin, 46rem); border-right-color: var(--accent); opacity: 0.45; }
+.opening-orbits i::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px 2px var(--accent-glow);
+}
+.opening-orbits i:nth-child(2)::after { top: auto; bottom: -3px; }
+.opening-orbits i:nth-child(3)::after { top: 50%; left: auto; right: -3px; }
+.opening-meteors { display: none; }
+.opening-grid-cell {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    left: -42px;
+    background: var(--accent-glow);
+    box-shadow: 0 0 20px var(--accent-glow);
+    pointer-events: none;
+}
+.signal-game { margin-top: 0.8rem; }
+.signal-game summary { color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; }
+.signal-score { margin-block: 0.35rem; font: 0.85rem var(--font-code); }
+.signal-board {
+    display: grid;
+    grid-template-columns: repeat(3, 2rem);
+    justify-content: center;
+    gap: 0.3rem;
+}
+.signal-board button, .signal-reset {
+    border: 1px solid var(--glass-border);
+    border-radius: 0.4rem;
+    background: var(--tag-bg);
+    color: var(--text-primary);
+}
+.signal-board button { aspect-ratio: 1; }
+.signal-board button:disabled { cursor: default; }
+.signal-board button:enabled { background: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
+.signal-reset { margin-top: 0.4rem; padding: 0.25rem 0.6rem; }
+.opening-scene:has(.signal-game[open]) { overflow-y: auto; }
+
+.site-dock {
+    position: fixed;
+    z-index: 1000;
+    inset-inline-end: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    display: flex;
+    gap: 0.35rem;
+    padding: 0.35rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    background: var(--bg-color);
+    box-shadow: var(--shadow);
+}
+.site-dock button {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding-inline: 0.35rem;
+    border: 1px solid transparent;
+    border-radius: 0.65rem;
+    background: var(--tag-bg);
+    color: var(--text-primary);
+    font: 600 0.8rem 'Inter', sans-serif;
+}
+.site-dock button:is(:hover, :focus-visible) { border-color: var(--accent); }
+body:has(.site-dock) #scrollTop { display: none; }
+body:has(.site-dock) footer { padding-bottom: 4.5rem; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .site-dock button { transition: transform 160ms ease; }
+    .site-dock button:hover { transform: translateY(-4px) scale(1.15); }
+    .site-dock button:hover + button, .site-dock button:has(+ button:hover) { transform: translateY(-2px) scale(1.06); }
+}
 .opening-mark {
     width: min(88vw, 29rem);
     padding: clamp(1rem, 4vmin, 2.5rem);
@@ -113,18 +188,16 @@ html:has(.site-opening[open]) { overflow: hidden; }
     text-align: center;
 }
 .opening-mark h1 { font-size: clamp(2.2rem, 7vmin, 4.4rem); line-height: 1.1; }
-.opening-status, .opening-subtitle { font: 0.75rem var(--font-code); letter-spacing: 0.18em; }
-.opening-status { margin-bottom: 0.75rem; color: var(--accent); }
-.opening-status span {
+.opening-beacon {
+    color: var(--accent);
     display: inline-block;
     width: 0.45rem;
     aspect-ratio: 1;
-    margin-inline-end: 0.55rem;
+    margin-bottom: 0.5rem;
     border-radius: 50%;
     background: currentColor;
     box-shadow: 0 0 0.65rem currentColor;
 }
-.opening-subtitle { margin-top: 0.65rem; text-transform: uppercase; color: var(--text-secondary); }
 .opening-enter {
     margin-top: 1.35rem;
     padding: 0.65rem 1.35rem;
@@ -136,14 +209,43 @@ html:has(.site-opening[open]) { overflow: hidden; }
 }
 .opening-enter:is(:hover, :focus-visible) { box-shadow: 0 0 1.4rem var(--accent-glow); }
 .opening-enter span { display: inline-block; margin-inline-start: 0.4rem; }
-#openingHint { margin-top: 0.8rem; color: var(--text-secondary); font-size: 0.78rem; }
 .opening-scan { display: none; }
 
 @media (prefers-reduced-motion: no-preference) {
+    /* Meteor trails adapted from Magic UI's Meteors component design. */
+    .opening-meteors {
+        position: absolute;
+        inset: 0;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .opening-meteors i {
+        position: absolute;
+        top: 10%;
+        left: 26%;
+        width: clamp(3rem, 12vw, 9rem);
+        height: 2px;
+        border-radius: 100%;
+        background: linear-gradient(90deg, transparent, var(--accent));
+        opacity: 0;
+        animation: opening-meteor 6s linear infinite;
+    }
+    .opening-meteors i:nth-child(2) { left: 72%; top: 18%; animation-delay: -2s; }
+    .opening-meteors i:nth-child(3) { left: 45%; top: 65%; animation-delay: -4s; }
+    .opening-scene::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background: linear-gradient(transparent 42%, var(--accent-glow) 50%, transparent 58%);
+        animation: opening-grid-sweep 7s linear infinite;
+    }
     .opening-orbits i { animation: opening-spin 13s linear infinite; }
     .opening-orbits i:nth-child(2) { animation-duration: 9s; animation-direction: reverse; }
     .opening-orbits i:nth-child(3) { animation-duration: 19s; }
-    .opening-status span { animation: opening-beacon 2s ease-in-out infinite alternate; }
+    .opening-beacon { animation: opening-beacon 2s ease-in-out infinite alternate; }
     .opening-enter span { transition: transform 180ms ease-out; }
     .opening-enter:is(:hover, :focus-visible) span { transform: translateX(4px); }
     .opening-pulse {
@@ -155,6 +257,14 @@ html:has(.site-opening[open]) { overflow: hidden; }
         box-shadow: inset 0 0 1.25rem var(--accent-glow), 0 0 1.25rem var(--accent-glow);
         pointer-events: none;
         animation: opening-pulse 800ms ease-out both;
+    }
+    .opening-pulse::after {
+        content: "";
+        position: absolute;
+        inset: -1.1rem;
+        border: 1px dashed var(--accent);
+        border-radius: inherit;
+        box-shadow: 0 0 1rem var(--accent-glow);
     }
     .site-opening.is-entering { animation: opening-reveal 780ms cubic-bezier(0.65, 0, 0.35, 1) both; }
     .is-entering .opening-scan {
@@ -170,7 +280,74 @@ html:has(.site-opening[open]) { overflow: hidden; }
     }
 }
 
+@keyframes opening-grid-sweep {
+    0% { transform: translateY(-65%); opacity: 0; }
+    18%, 75% { opacity: 0.25; }
+    100% { transform: translateY(65%); opacity: 0; }
+}
 @keyframes opening-spin { to { transform: rotate(1turn); } }
+@keyframes opening-meteor {
+    0% { opacity: 0; transform: rotate(26deg) translateX(-8rem); }
+    7% { opacity: 0.65; }
+    20%, 100% { opacity: 0; transform: rotate(26deg) translateX(16rem); }
+}
+
+/* Border Beam and Shimmer Button adapted from Magic UI's component designs. */
+.opening-mark { position: relative; isolation: isolate; }
+.opening-enter { position: relative; overflow: hidden; }
+
+.profile-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+.profile-shortcuts button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 0.85rem;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    text-align: start;
+    font: inherit;
+    font-weight: 600;
+}
+.profile-shortcuts button :is(i, span:last-child) { color: var(--accent); }
+.profile-shortcuts button span:last-child { margin-inline-start: auto; }
+.profile-shortcuts button:is(:hover, :focus-visible) {
+    border-color: var(--accent);
+    background: linear-gradient(115deg, var(--tag-bg), var(--card-bg));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .opening-mark::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        pointer-events: none;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent) 0 0 / 45% 2px no-repeat;
+        animation: opening-border-beam 3s ease-in-out infinite alternate;
+    }
+    .opening-enter::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(110deg, transparent 36%, var(--accent-glow) 50%, transparent 64%);
+        animation: opening-button-shimmer 4s ease-in-out infinite;
+    }
+    .profile-shortcuts button { transition: transform 180ms ease, border-color 180ms ease; }
+    .profile-shortcuts button:is(:hover, :focus-visible) { transform: translateY(-3px); }
+}
+@keyframes opening-border-beam { to { background-position: 100% 0; } }
+@keyframes opening-button-shimmer {
+    0%, 45% { transform: translateX(-100%); }
+    78%, 100% { transform: translateX(100%); }
+}
 @keyframes opening-beacon { from { opacity: 0.45; } to { opacity: 1; } }
 @keyframes opening-pulse {
     from { opacity: 1; transform: translate(-50%, -50%) scale(0.08); }

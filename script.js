@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setupTabs();
         setupSteganography();
         setupClickEffects();
+        document.querySelectorAll('[data-dock-target]').forEach(button => {
+            button.addEventListener('click', () => document.getElementById(button.dataset.dockTarget).click());
+        });
         typeWriter("Yijie Lin（林翼洁）", dom.title);
     }
 
@@ -52,33 +55,48 @@ document.addEventListener("DOMContentLoaded", () => {
         const opening = document.createElement('dialog');
         opening.className = 'site-opening';
         opening.setAttribute('aria-labelledby', 'openingTitle');
-        opening.setAttribute('aria-describedby', 'openingHint');
         const zh = state.lang === 'zh';
         opening.innerHTML = `
             <div class="opening-scene">
+                <div class="opening-meteors" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="opening-grid-cell" aria-hidden="true"></div>
                 <div class="opening-orbits" aria-hidden="true"><i></i><i></i><i></i></div>
                 <div class="opening-mark">
-                    <p class="opening-status"><span aria-hidden="true"></span>${zh ? '信号已锁定' : 'SIGNAL LOCKED'}</p>
+                    <span class="opening-beacon" aria-hidden="true"></span>
                     <h1 id="openingTitle" lang="en">Yijie Lin</h1>
-                    <p class="opening-subtitle" lang="en">Academic Profile</p>
                     <button class="opening-enter" autofocus>${zh ? '进入主页' : 'Enter Profile'} <span aria-hidden="true">→</span></button>
-                    <p id="openingHint" ${reducedMotion.matches ? 'hidden' : ''}>${zh ? '轻触空白处，发射信号' : 'Tap the field to send a pulse'}</p>
+                    <details class="signal-game">
+                        <summary>${zh ? '捕捉信号' : 'Catch the signal'}</summary>
+                        <p class="signal-score" aria-live="polite">0 / 5</p>
+                        <div class="signal-board"></div>
+                        <button type="button" class="signal-reset">${zh ? '再玩一次' : 'Play again'}</button>
+                    </details>
                 </div>
             </div>
             <div class="opening-scan" aria-hidden="true"></div>
         `;
         document.body.appendChild(opening);
         const enter = opening.querySelector('.opening-enter');
+        const gridCell = opening.querySelector('.opening-grid-cell');
+        setupSignalGame(opening, zh);
+
+        function lightGridCell(event) {
+            gridCell.style.left = `${Math.floor(event.clientX / 42) * 42}px`;
+            gridCell.style.top = `${Math.floor(event.clientY / 42) * 42}px`;
+        }
+
         opening.addEventListener('cancel', event => event.preventDefault());
         opening.addEventListener('pointermove', event => {
             event.stopPropagation();
             if (reducedMotion.matches || event.pointerType !== 'mouse') return;
+            lightGridCell(event);
             opening.style.setProperty('--opening-x', `${event.clientX}px`);
             opening.style.setProperty('--opening-y', `${event.clientY}px`);
         });
         opening.addEventListener('click', event => {
             event.stopPropagation();
-            if (reducedMotion.matches || enter.contains(event.target) || opening.classList.contains('is-entering')) return;
+            if (reducedMotion.matches || event.target.closest('.opening-mark') || opening.classList.contains('is-entering')) return;
+            lightGridCell(event);
             const pulses = opening.querySelectorAll('.opening-pulse');
             if (pulses.length >= 8) pulses[0].remove();
             const pulse = document.createElement('span');
@@ -106,6 +124,41 @@ document.addEventListener("DOMContentLoaded", () => {
             opening.close();
             opening.remove();
             document.querySelector('.tab-btn.active').focus({ preventScroll: true });
+        }
+    }
+
+    function setupSignalGame(opening, zh) {
+        const board = opening.querySelector('.signal-board');
+        const score = opening.querySelector('.signal-score');
+        const reset = opening.querySelector('.signal-reset');
+        let caught = 0;
+        let position = 4;
+        const cells = Array.from({ length: 9 }, (_, index) => {
+            const cell = document.createElement('button');
+            cell.type = 'button';
+            cell.setAttribute('aria-label', zh ? `捕捉信号，格子 ${index + 1}` : `Catch signal, cell ${index + 1}`);
+            cell.addEventListener('click', () => {
+                caught++;
+                position = (position + 1 + Math.floor(Math.random() * 8)) % cells.length;
+                updateBoard();
+                (caught === 5 ? reset : cells[position]).focus({ preventScroll: true });
+            });
+            board.appendChild(cell);
+            return cell;
+        });
+        reset.addEventListener('click', () => {
+            caught = 0;
+            position = 4;
+            updateBoard();
+            cells[position].focus({ preventScroll: true });
+        });
+        updateBoard();
+
+        function updateBoard() {
+            const complete = caught === 5;
+            score.textContent = complete ? (zh ? '已捕捉全部 5 个信号' : 'All 5 signals caught') : `${caught} / 5`;
+            cells.forEach((cell, index) => { cell.disabled = complete || index !== position; });
+            reset.hidden = !complete;
         }
     }
 
@@ -257,7 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const row = document.createElement('div');
                 const label = document.createElement('span');
                 label.className = 'record-label';
-                label.textContent = isEnglish ? 'Presentation' : '成果发表';
+                label.textContent = isEnglish ? 'Presentation' : '发表';
                 row.append(label, ` ${event} · ${isEnglish ? descriptionEn : description}`);
                 card.querySelector('.record-detail').appendChild(row);
             }
@@ -626,6 +679,13 @@ document.addEventListener("DOMContentLoaded", () => {
         placeIndicator(active);
         navigation.classList.add('has-tab-indicator');
         new ResizeObserver(() => placeIndicator(active)).observe(navigation);
+        document.querySelectorAll('[data-shortcut]').forEach(shortcut => {
+            shortcut.addEventListener('click', () => {
+                const target = navigation.querySelector(`[data-tab="${shortcut.dataset.shortcut}"]`);
+                target.click();
+                target.focus();
+            });
+        });
         btns.forEach(btn => {
             btn.addEventListener('click', () => {
                 if (btn === active) return;
