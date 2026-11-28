@@ -29,7 +29,8 @@
         { "name": "Discover Computing", "tags": ["JCR Q3"] },
         { "name": "Journal of Cybersecurity and Privacy", "tags": ["JCR Q2"] },
         { "name": "Computer Systems Science and Engineering" },
-        { "name": "Discover Networks" }
+        { "name": "Discover Networks" },
+        { "name": "Environmental and Earth Sciences Proceedings" }
     ],
     "conferences": [
         { "name": "The 3rd International Conference on Computer Technology and Information Science (CTIS 2025)" }
